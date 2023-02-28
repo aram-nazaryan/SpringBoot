@@ -1,10 +1,12 @@
 package com.example.lms.service;
 
 import com.example.lms.domain.User;
+import com.example.lms.dto.UpdateResponseMessageDto;
 import com.example.lms.dto.UserRegisterDto;
 import com.example.lms.dto.UserRegisterResponseDto;
 import com.example.lms.dto.error.ErrorDto;
 import com.example.lms.dto.error.ErrorType;
+import com.example.lms.dto.error.Message;
 import com.example.lms.mapper.UserMapper;
 import com.example.lms.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -47,6 +49,18 @@ public class UserServiceImpl implements UserService {
                 .stream()
                 .map(userMapper::userToUserResponseDto)
                 .toList();
+    }
+
+    @Override
+    public UpdateResponseMessageDto delete(String uuid) {
+        User user = userRepository.findUsersByUuid(uuid);
+        if (user != null) {
+            userRepository.delete(user);
+            return new UpdateResponseMessageDto(Message.DELETE_USER.getMessage());
+        }
+
+        ErrorDto errorDto = ErrorType.USER_NOT_EXISTS.errorDto();
+        return new UpdateResponseMessageDto(errorDto);
     }
 
     private Boolean isBodyValid(UserRegisterDto registerDto) {

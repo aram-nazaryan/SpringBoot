@@ -1,6 +1,7 @@
 package com.example.lms.domain;
 
 import com.example.lms.domain.enums.Role;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -67,6 +68,7 @@ public class User {
             name = "user_course",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id"))
+    @JsonBackReference
     private Set<Course> courses;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Attendance> attendances;

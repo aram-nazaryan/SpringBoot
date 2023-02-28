@@ -1,5 +1,6 @@
 package com.example.lms.controller;
 
+import com.example.lms.dto.UpdateResponseMessageDto;
 import com.example.lms.dto.UserRegisterDto;
 import com.example.lms.dto.UserRegisterResponseDto;
 import com.example.lms.service.UserService;
@@ -32,5 +33,12 @@ public class UserController {
         log.info("Get users - {}", pageable);
         List<UserRegisterResponseDto> users = userService.getUsers(pageable);
         return ResponseEntity.ok(users);
+    }
+
+    @DeleteMapping("/delete/{uuid}")
+    public ResponseEntity<UpdateResponseMessageDto> delete(@PathVariable("uuid") String uuid) {
+        log.info("Delete user with uuid - {}", uuid);
+        UpdateResponseMessageDto delete = userService.delete(uuid);
+        return ResponseEntity.status(delete.getStatus()).body(delete);
     }
 }

@@ -7,9 +7,10 @@ import com.example.lms.domain.User;
 import com.example.lms.dto.CourseParticipantsDto;
 import com.example.lms.dto.CourseRegisterDto;
 import com.example.lms.dto.CourseRegisterResponseDto;
-import com.example.lms.dto.CourseUpdateResponseDto;
+import com.example.lms.dto.UpdateResponseMessageDto;
 import com.example.lms.dto.error.ErrorDto;
 import com.example.lms.dto.error.ErrorType;
+import com.example.lms.dto.error.Message;
 import com.example.lms.mapper.CourseMapper;
 import com.example.lms.repository.AttendanceRepository;
 import com.example.lms.repository.CourseRepository;
@@ -74,11 +75,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public CourseUpdateResponseDto addCourseParticipants(CourseParticipantsDto participantsDto) {
+    public UpdateResponseMessageDto addCourseParticipants(CourseParticipantsDto participantsDto) {
         Course course = courseRepository.getCoursesByUuid(participantsDto.getUuid());
         if (course == null) {
             ErrorDto errorDto = ErrorType.COURSE_NOT_FOUND.errorDto();
-            return new CourseUpdateResponseDto(errorDto);
+            return new UpdateResponseMessageDto(errorDto);
         }
         List<User> users = userRepository.findUsersByUuidIn(participantsDto.getUserUuids());
         Set<User> enrolledUsers = course.getUsers();
@@ -97,7 +98,18 @@ public class CourseServiceImpl implements CourseService {
         enrolledUsers.addAll(users);
         course.setUsers(enrolledUsers);
         courseRepository.save(course);
-        return new CourseUpdateResponseDto();
+        return new UpdateResponseMessageDto(Message.UPDATE.getMessage());
+    }
+
+    @Override
+    public UpdateResponseMessageDto delete(String uuid) {
+        Course course = courseRepository.getCoursesByUuid(uuid);
+        if (course != null) {
+            courseRepository.delete(course);
+            return new UpdateResponseMessageDto(Message.DELETE.getMessage());
+        }
+        ErrorDto errorDto = ErrorType.NOT_EXISTS.errorDto();
+        return new UpdateResponseMessageDto(errorDto);
     }
 
 

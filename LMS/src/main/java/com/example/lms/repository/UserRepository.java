@@ -12,4 +12,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findUsersByUuidIn(List<String> uuids);
 
+    User findUsersByUuid(String uuid);
+
 }

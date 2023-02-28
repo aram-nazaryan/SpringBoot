@@ -1,11 +1,9 @@
 package com.example.lms.service;
 
-import com.example.lms.domain.Course;
 import com.example.lms.dto.CourseParticipantsDto;
 import com.example.lms.dto.CourseRegisterDto;
 import com.example.lms.dto.CourseRegisterResponseDto;
-import com.example.lms.dto.CourseUpdateResponseDto;
-import org.springframework.data.domain.Page;
+import com.example.lms.dto.UpdateResponseMessageDto;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
@@ -16,5 +14,7 @@ public interface CourseService {
 
     List<CourseRegisterResponseDto> getCourses(Pageable pageable);
 
-    CourseUpdateResponseDto addCourseParticipants(CourseParticipantsDto participantsDto);
+    UpdateResponseMessageDto addCourseParticipants(CourseParticipantsDto participantsDto);
+
+    UpdateResponseMessageDto delete(String uuid);
 }
