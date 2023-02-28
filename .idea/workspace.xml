@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4e439e0a-9be6-40f6-b626-ff27ba2aab47" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LMS/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/LmsApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/config/Config.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/controller/CourseController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/controller/HomeworkController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/controller/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/domain/Attendance.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/domain/Course.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/domain/Homework.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/domain/Session.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/domain/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/domain/UserAssessment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/domain/UserHomework.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/domain/enums/Role.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/domain/enums/TaskType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/dto/AbstractResponseDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/dto/CourseParticipantsDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/dto/CourseRegisterDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/dto/CourseRegisterResponseDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/dto/CourseUpdateResponseDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/dto/HomeworkCreationDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/dto/HomeworkResponseDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/dto/UserRegisterDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/dto/UserRegisterResponseDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/dto/error/ErrorDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/dto/error/ErrorType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/mapper/CourseMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/mapper/CourseMapperImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/mapper/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/mapper/UserMapperImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/repository/AttendanceRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/repository/CourseRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/repository/HomeworkRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/repository/SessionRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/repository/UserAssessmentRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/repository/UserHomeworkRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/repository/UserRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/service/CourseService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/service/CourseServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/service/HomeworkService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/service/HomeworkServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/main/com/example/lms/service/UserServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/classes/java/test/com/example/lms/LmsApplicationTests.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/generated/sources/annotationProcessor/java/main/com/example/lms/mapper/CourseMapperImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/generated/sources/annotationProcessor/java/main/com/example/lms/mapper/UserMapperImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/libs/LMS-0.0.1-SNAPSHOT-plain.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/libs/LMS-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/reports/tests/test/classes/com.example.lms.LmsApplicationTests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/reports/tests/test/css/base-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/reports/tests/test/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/reports/tests/test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/reports/tests/test/js/report.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/reports/tests/test/packages/com.example.lms.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/resolvedMainClassName" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/resources/main/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/resources/main/sourcemind-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/test-results/test/TEST-com.example.lms.LmsApplicationTests.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/bootJar/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/compileJava/compileTransaction/stash-dir/AssessmentService.class.uniqueId3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/compileJava/compileTransaction/stash-dir/AssessmentServiceImpl.class.uniqueId4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/compileJava/compileTransaction/stash-dir/AttendanceService.class.uniqueId2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/compileJava/compileTransaction/stash-dir/AttendanceServiceImpl.class.uniqueId7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/compileJava/compileTransaction/stash-dir/LmsApplication.class.uniqueId5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/compileJava/compileTransaction/stash-dir/SessionService.class.uniqueId0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/compileJava/compileTransaction/stash-dir/SessionServiceImpl.class.uniqueId6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/compileJava/compileTransaction/stash-dir/UserHomeworkService.class.uniqueId1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/compileJava/compileTransaction/stash-dir/UserHomeworkServiceImpl.class.uniqueId8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/gradle/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/LmsApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/config/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/controller/CourseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/controller/HomeworkController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/domain/Attendance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/domain/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/domain/Homework.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/domain/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/domain/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/domain/UserAssessment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/domain/UserHomework.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/domain/enums/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/domain/enums/TaskType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/dto/AbstractResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/dto/CourseParticipantsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/dto/CourseRegisterDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/dto/CourseRegisterResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/dto/CourseUpdateResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/dto/HomeworkCreationDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/dto/HomeworkResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/dto/UserRegisterDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/dto/UserRegisterResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/dto/error/ErrorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/dto/error/ErrorType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/mapper/CourseMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/repository/AttendanceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/repository/CourseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/repository/HomeworkRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/repository/SessionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/repository/UserAssessmentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/repository/UserHomeworkRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/service/CourseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/service/CourseServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/service/HomeworkService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/service/HomeworkServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/java/com/example/lms/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/main/resources/sourcemind-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LMS/src/test/java/com/example/lms/LmsApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2MMX103Wx1AqgFNtpClvvRuYlPE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e439e0a-9be6-40f6-b626-ff27ba2aab47" name="Changes" comment="" />
+      <created>1677578206177</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1677578206177</updated>
+      <workItem from="1677578207586" duration="19000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
