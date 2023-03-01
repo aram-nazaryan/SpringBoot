@@ -1,14 +1,16 @@
 package com.example.lms.mapper;
 
 import com.example.lms.domain.User;
+import com.example.lms.dto.UserDetailsDto;
 import com.example.lms.dto.UserRegisterDto;
 import com.example.lms.dto.UserRegisterResponseDto;
+import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.stereotype.Component;
 
 @Component
-@Mapper
+@Mapper(uses = CourseMapper.class)
 public interface UserMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "uuid", ignore = true)
@@ -20,8 +22,7 @@ public interface UserMapper {
     @Mapping(target = "userTasks", ignore = true)
     User userDtoToUser(UserRegisterDto registerDto);
 
-    @Mapping(source = "uuid", target = "uuid")
-    @Mapping(source = "firstName", target = "firstName")
-    @Mapping(source = "lastName", target = "lastName")
     UserRegisterResponseDto userToUserResponseDto(User user);
+
+    UserDetailsDto userToUserDetailsDto(User user);
 }

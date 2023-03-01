@@ -1,9 +1,7 @@
 package com.example.lms.controller;
 
-import com.example.lms.dto.CourseParticipantsDto;
-import com.example.lms.dto.CourseRegisterDto;
-import com.example.lms.dto.CourseRegisterResponseDto;
-import com.example.lms.dto.UpdateResponseMessageDto;
+import com.example.lms.dto.*;
+import com.example.lms.dto.course.CourseDetailsResponseDto;
 import com.example.lms.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -43,6 +41,13 @@ public class CourseController {
         log.info("Get courses - {}", pageable.toString());
         List<CourseRegisterResponseDto> courses = courseService.getCourses(pageable);
         return ResponseEntity.ok(courses);
+    }
+
+    @GetMapping("/{uuid}")
+    public ResponseEntity<CourseDetailsResponseDto> getDetails(@PathVariable("uuid") String uuid) {
+        log.info("Get details with uuid - {}", uuid);
+        CourseDetailsResponseDto course = courseService.get(uuid);
+        return ResponseEntity.status(course.getStatus()).body(course);
     }
 
     @DeleteMapping("/delete/{uuid}")

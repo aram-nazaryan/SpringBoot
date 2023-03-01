@@ -9,7 +9,8 @@ public enum ErrorType {
     ALREADY_REGISTERED("email_or_phone_already_registered", HttpStatus.IM_USED),
     COURSE_NOT_FOUND("course_not_found", HttpStatus.NOT_FOUND),
     NOT_EXISTS("course_does_not_exists", HttpStatus.NOT_ACCEPTABLE),
-    USER_NOT_EXISTS("user_does_not_exists", HttpStatus.NOT_ACCEPTABLE);
+    USER_NOT_EXISTS("user_does_not_exists", HttpStatus.NOT_ACCEPTABLE),
+    INCORRECT_USER_TYPE("incorrect_user_type", HttpStatus.BAD_REQUEST);
 
     private final String id;
     private final HttpStatus httpStatus;

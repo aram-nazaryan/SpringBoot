@@ -8,6 +8,7 @@ import com.example.lms.dto.CourseParticipantsDto;
 import com.example.lms.dto.CourseRegisterDto;
 import com.example.lms.dto.CourseRegisterResponseDto;
 import com.example.lms.dto.UpdateResponseMessageDto;
+import com.example.lms.dto.course.CourseDetailsResponseDto;
 import com.example.lms.dto.error.ErrorDto;
 import com.example.lms.dto.error.ErrorType;
 import com.example.lms.dto.error.Message;
@@ -110,6 +111,18 @@ public class CourseServiceImpl implements CourseService {
         }
         ErrorDto errorDto = ErrorType.NOT_EXISTS.errorDto();
         return new UpdateResponseMessageDto(errorDto);
+    }
+
+    @Override
+    public CourseDetailsResponseDto get(String uuid) {
+        Course course = courseRepository.getCoursesByUuid(uuid);
+        if (course == null) {
+            ErrorDto errorDto = ErrorType.COURSE_NOT_FOUND.errorDto();
+            return new CourseDetailsResponseDto(errorDto);
+        }
+
+        CourseDetailsResponseDto details = courseMapper.courseToDetailsDto(course);
+         return details;
     }
 
 

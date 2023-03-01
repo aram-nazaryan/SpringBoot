@@ -1,6 +1,7 @@
 package com.example.lms.controller;
 
 import com.example.lms.dto.UpdateResponseMessageDto;
+import com.example.lms.dto.UserDetailsDto;
 import com.example.lms.dto.UserRegisterDto;
 import com.example.lms.dto.UserRegisterResponseDto;
 import com.example.lms.service.UserService;
@@ -33,6 +34,20 @@ public class UserController {
         log.info("Get users - {}", pageable);
         List<UserRegisterResponseDto> users = userService.getUsers(pageable);
         return ResponseEntity.ok(users);
+    }
+
+    @GetMapping("/{role}")
+    public ResponseEntity<List<UserRegisterResponseDto>> getUsersByRole(@PathVariable("role") String role) {
+        log.info("Get all - {}", role);
+        List<UserRegisterResponseDto> users = userService.getUsersByRole(role);
+        return ResponseEntity.status(users.get(0).getStatus()).body(users);
+    }
+
+    @GetMapping("/details/{uuid}")
+    public ResponseEntity<UserDetailsDto> getSingleUser (@PathVariable("uuid") String uuid) {
+        log.info("Get details - {}", uuid);
+        UserDetailsDto user = userService.get(uuid);
+        return ResponseEntity.status(user.getStatus()).body(user);
     }
 
     @DeleteMapping("/delete/{uuid}")
