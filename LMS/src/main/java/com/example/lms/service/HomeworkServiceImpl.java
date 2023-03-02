@@ -3,8 +3,11 @@ package com.example.lms.service;
 import com.example.lms.domain.*;
 import com.example.lms.dto.HomeworkCreationDto;
 import com.example.lms.dto.HomeworkResponseDto;
+import com.example.lms.dto.UpdateResponseMessageDto;
+import com.example.lms.dto.course.UserHomeworkDto;
 import com.example.lms.dto.error.ErrorDto;
 import com.example.lms.dto.error.ErrorType;
+import com.example.lms.dto.error.Message;
 import com.example.lms.repository.CourseRepository;
 import com.example.lms.repository.HomeworkRepository;
 import com.example.lms.repository.SessionRepository;
@@ -49,5 +52,20 @@ public class HomeworkServiceImpl implements HomeworkService {
             userHomeworkRepository.save(userHomework);
         }
         return new HomeworkResponseDto(course.getName(), session.getNumber());
+    }
+
+    @Override
+    public UpdateResponseMessageDto updateUserHomework(UserHomeworkDto userHomeworkDto) {
+        UserHomework homework = userHomeworkRepository.findByHomework_IdAndUser_Id(userHomeworkDto.getHomeworkId(), userHomeworkDto.getUserId());
+        if (homework == null) {
+            ErrorDto errorDto = ErrorType.NOT_EXISTS.errorDto();
+            return new UpdateResponseMessageDto(errorDto);
+        }
+        homework.setComment(userHomeworkDto.getComment());
+        homework.setGrade(userHomeworkDto.getGrade());
+        homework.setPassedStatus(userHomeworkDto.getPassedStatus());
+
+        userHomeworkRepository.save(homework);
+        return new UpdateResponseMessageDto(Message.HOMEWORK_UPDATED.getMessage());
     }
 }
