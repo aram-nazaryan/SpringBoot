@@ -14,8 +14,6 @@ import org.springframework.stereotype.Component;
 public interface AssessmentMapper {
     AssessmentResponseDto assessmentToDto(Assessment assessment);
 
-    @Mapping(target = "assessmentId", source = "assessment.id")
-    @Mapping(target = "courseId", source = "course.id")
     @Mapping(target = "userId", source = "user.id")
     UserAssessmentDto userAssessmentToDto (UserAssessment userAssessment);
     @Mapping(target = "name", source = "course.name")

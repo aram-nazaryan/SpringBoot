@@ -5,10 +5,8 @@ import com.example.lms.domain.Course;
 import com.example.lms.domain.User;
 import com.example.lms.domain.UserAssessment;
 import com.example.lms.domain.enums.Role;
-import com.example.lms.dto.assessment.AssessmentRequestDto;
-import com.example.lms.dto.assessment.AssessmentResponseDto;
-import com.example.lms.dto.assessment.AssessmentUpdateRequestDto;
 import com.example.lms.dto.UpdateResponseMessageDto;
+import com.example.lms.dto.assessment.*;
 import com.example.lms.dto.error.ErrorDto;
 import com.example.lms.dto.error.ErrorType;
 import com.example.lms.dto.error.Message;
@@ -20,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -32,6 +31,7 @@ public class AssessmentServiceImpl implements AssessmentService {
     private final AssessmentRepository assessmentRepository;
     private final CourseRepository courseRepository;
     private final AssessmentMapper assessmentMapper = Mappers.getMapper(AssessmentMapper.class);
+
     @Override
     public UpdateResponseMessageDto create(AssessmentRequestDto assessmentRequestDto) {
 
@@ -81,9 +81,29 @@ public class AssessmentServiceImpl implements AssessmentService {
     @Override
     public List<AssessmentResponseDto> get() {
         List<Assessment> assessments = assessmentRepository.findAll();
-        return assessments
-                .stream()
-                .map(assessmentMapper::assessmentToDto)
-                .toList();
+        List<AssessmentResponseDto> assessmentResponseDtos = new ArrayList<>();
+        for (Assessment a : assessments) {
+            AssessmentResponseDto assessmentResponseDto = new AssessmentResponseDto();
+            assessmentResponseDto.setId(a.getId());
+            assessmentResponseDto.setNumber(a.getNumber());
+            List<Long> coursesIds = userAssessmentRepository.getCoursesIds(a.getId());
+            List<Course> courses = courseRepository.findAllByIdIn(coursesIds);
+            List<CourseAssessmentDto> courseAssessmentDtos = new ArrayList<>();
+            for (Course c : courses) {
+                CourseAssessmentDto courseAssessmentDto = new CourseAssessmentDto();
+                courseAssessmentDto.setId(c.getId());
+                courseAssessmentDto.setName(c.getName());
+                List<UserAssessment> assessmentList = userAssessmentRepository.findAllByAssessment_IdAndCourse_Id(a.getId(), c.getId());
+                List<UserAssessmentDto> userAssessmentDtos = assessmentList
+                        .stream()
+                        .map(assessmentMapper::userAssessmentToDto)
+                        .toList();
+                courseAssessmentDto.setUserDetails(userAssessmentDtos);
+                courseAssessmentDtos.add(courseAssessmentDto);
+            }
+            assessmentResponseDto.setCourseDetails(courseAssessmentDtos);
+            assessmentResponseDtos.add(assessmentResponseDto);
+        }
+        return assessmentResponseDtos;
     }
 }

@@ -5,9 +5,8 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class AssessmentResponseDto {
+public class CourseAssessmentDto {
+    private String name;
     private Long id;
-    private Integer number;
-
-     List<CourseAssessmentDto> courseDetails;
+    List<UserAssessmentDto> userDetails;
 }

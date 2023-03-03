@@ -13,5 +13,6 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
     Page<Course> findAll(Pageable pageable);
     Course getCoursesByUuid (String uuid);
     List<Course> findAllByUuidIn(List<String> uuid);
+    List<Course> findAllByIdIn(List<Long> ids);
 
 }
