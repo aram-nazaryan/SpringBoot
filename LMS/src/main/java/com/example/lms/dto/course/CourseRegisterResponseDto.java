@@ -1,10 +1,11 @@
-package com.example.lms.dto;
+package com.example.lms.dto.course;
 
+import com.example.lms.dto.AbstractResponseDto;
 import com.example.lms.dto.error.ErrorDto;
 import lombok.*;
 
 @Data
-public class CourseRegisterResponseDto extends AbstractResponseDto{
+public class CourseRegisterResponseDto extends AbstractResponseDto {
     private String uuid;
     private String name;
 

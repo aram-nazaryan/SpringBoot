@@ -1,12 +1,17 @@
 package com.example.lms.mapper;
 
 import com.example.lms.domain.Course;
+import com.example.lms.domain.Session;
 import com.example.lms.domain.User;
-import com.example.lms.dto.CourseRegisterResponseDto;
 import com.example.lms.dto.UserDetailsDto;
 import com.example.lms.dto.UserRegisterDto;
 import com.example.lms.dto.UserRegisterResponseDto;
+import com.example.lms.dto.course.CourseRegisterResponseDto;
+import com.example.lms.dto.feedback.CourseDto;
+import com.example.lms.dto.feedback.FeedbackDto;
+import com.example.lms.dto.feedback.SessionFeedbackDto;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import javax.annotation.processing.Generated;
@@ -14,7 +19,7 @@ import org.mapstruct.factory.Mappers;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-03-03T16:18:52+0400",
+    date = "2023-03-03T22:51:10+0400",
     comments = "version: 1.5.3.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.6.jar, environment: Java 18.0.2-ea (Private Build)"
 )
 public class UserMapperImpl implements UserMapper {
@@ -74,6 +79,22 @@ public class UserMapperImpl implements UserMapper {
         return userDetailsDto;
     }
 
+    @Override
+    public FeedbackDto userToFeedbackDto(User user) {
+        if ( user == null ) {
+            return null;
+        }
+
+        FeedbackDto feedbackDto = new FeedbackDto();
+
+        feedbackDto.setUuid( user.getUuid() );
+        feedbackDto.setFirstName( user.getFirstName() );
+        feedbackDto.setLastName( user.getLastName() );
+        feedbackDto.setCourses( courseSetToCourseDtoSet( user.getCourses() ) );
+
+        return feedbackDto;
+    }
+
     protected List<CourseRegisterResponseDto> courseSetToCourseRegisterResponseDtoList(Set<Course> set) {
         if ( set == null ) {
             return null;
@@ -85,5 +106,56 @@ public class UserMapperImpl implements UserMapper {
         }
 
         return list;
+    }
+
+    protected SessionFeedbackDto sessionToSessionFeedbackDto(Session session) {
+        if ( session == null ) {
+            return null;
+        }
+
+        SessionFeedbackDto sessionFeedbackDto = new SessionFeedbackDto();
+
+        sessionFeedbackDto.setNumber( session.getNumber() );
+
+        return sessionFeedbackDto;
+    }
+
+    protected List<SessionFeedbackDto> sessionListToSessionFeedbackDtoList(List<Session> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<SessionFeedbackDto> list1 = new ArrayList<SessionFeedbackDto>( list.size() );
+        for ( Session session : list ) {
+            list1.add( sessionToSessionFeedbackDto( session ) );
+        }
+
+        return list1;
+    }
+
+    protected CourseDto courseToCourseDto(Course course) {
+        if ( course == null ) {
+            return null;
+        }
+
+        CourseDto courseDto = new CourseDto();
+
+        courseDto.setName( course.getName() );
+        courseDto.setSessions( sessionListToSessionFeedbackDtoList( course.getSessions() ) );
+
+        return courseDto;
+    }
+
+    protected Set<CourseDto> courseSetToCourseDtoSet(Set<Course> set) {
+        if ( set == null ) {
+            return null;
+        }
+
+        Set<CourseDto> set1 = new LinkedHashSet<CourseDto>( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );
+        for ( Course course : set ) {
+            set1.add( courseToCourseDto( course ) );
+        }
+
+        return set1;
     }
 }

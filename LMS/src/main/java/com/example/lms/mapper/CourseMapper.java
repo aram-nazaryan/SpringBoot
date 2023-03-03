@@ -1,12 +1,11 @@
 package com.example.lms.mapper;
 
 import com.example.lms.domain.*;
-import com.example.lms.dto.CourseRegisterDto;
-import com.example.lms.dto.CourseRegisterResponseDto;
+import com.example.lms.dto.course.CourseRegisterDto;
+import com.example.lms.dto.course.CourseRegisterResponseDto;
 import com.example.lms.dto.course.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -29,6 +28,8 @@ public interface CourseMapper {
 
     @Mapping(source = "user.id", target = "userId")
     @Mapping(source = "session.id", target = "sessionId")
+    @Mapping(target = "userName", source = "user.firstName")
+    @Mapping(target = "userSurname", source = "user.lastName")
     AttendanceDto attendanceToAttendanceDto(Attendance attendance);
 
     @Mapping(target = "sessionId", source = "session.id")
@@ -36,6 +37,8 @@ public interface CourseMapper {
 
     @Mapping(target = "homeworkId", source = "homework.id")
     @Mapping(target = "userId", source = "user.id")
+    @Mapping(target = "userName", source = "user.firstName")
+    @Mapping(target = "userSurname", source = "user.lastName")
     UserHomeworkDto userHomeToUserHomeDto(UserHomework userHomework);
 }
 

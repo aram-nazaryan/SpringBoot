@@ -1,9 +1,8 @@
 package com.example.lms.controller;
 
-import com.example.lms.dto.UpdateResponseMessageDto;
-import com.example.lms.dto.UserDetailsDto;
-import com.example.lms.dto.UserRegisterDto;
-import com.example.lms.dto.UserRegisterResponseDto;
+import com.example.lms.dto.*;
+import com.example.lms.dto.feedback.FeedbackDto;
+import com.example.lms.dto.feedback.FeedbackRequestDto;
 import com.example.lms.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +29,7 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UserRegisterResponseDto>> getUsers(@PageableDefault(size = 5)Pageable pageable) {
+    public ResponseEntity<List<UserRegisterResponseDto>> getUsers(@PageableDefault(size = 5) Pageable pageable) {
         log.info("Get users - {}", pageable);
         List<UserRegisterResponseDto> users = userService.getUsers(pageable);
         return ResponseEntity.ok(users);
@@ -44,7 +43,7 @@ public class UserController {
     }
 
     @GetMapping("/details/{uuid}")
-    public ResponseEntity<UserDetailsDto> getSingleUser (@PathVariable("uuid") String uuid) {
+    public ResponseEntity<UserDetailsDto> getSingleUser(@PathVariable("uuid") String uuid) {
         log.info("Get details - {}", uuid);
         UserDetailsDto user = userService.get(uuid);
         return ResponseEntity.status(user.getStatus()).body(user);
@@ -55,5 +54,12 @@ public class UserController {
         log.info("Delete user with uuid - {}", uuid);
         UpdateResponseMessageDto delete = userService.delete(uuid);
         return ResponseEntity.status(delete.getStatus()).body(delete);
+    }
+
+    @PostMapping("/feedback")
+    public ResponseEntity<FeedbackDto> getFeedback(@RequestBody FeedbackRequestDto requestDto) {
+        log.info("Get feedback for user - {}", requestDto);
+        FeedbackDto feedback = userService.getFeedback(requestDto);
+        return ResponseEntity.ok(feedback);
     }
 }

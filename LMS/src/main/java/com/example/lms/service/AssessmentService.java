@@ -1,8 +1,8 @@
 package com.example.lms.service;
 
-import com.example.lms.dto.AssessmentRequestDto;
-import com.example.lms.dto.AssessmentResponseDto;
-import com.example.lms.dto.AssessmentUpdateRequestDto;
+import com.example.lms.dto.assessment.AssessmentRequestDto;
+import com.example.lms.dto.assessment.AssessmentResponseDto;
+import com.example.lms.dto.assessment.AssessmentUpdateRequestDto;
 import com.example.lms.dto.UpdateResponseMessageDto;
 
 import java.util.List;

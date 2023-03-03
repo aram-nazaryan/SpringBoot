@@ -1,31 +1,38 @@
 package com.example.lms.service;
 
-import com.example.lms.domain.User;
+import com.example.lms.domain.*;
 import com.example.lms.domain.enums.Role;
-import com.example.lms.dto.UpdateResponseMessageDto;
-import com.example.lms.dto.UserDetailsDto;
-import com.example.lms.dto.UserRegisterDto;
-import com.example.lms.dto.UserRegisterResponseDto;
+import com.example.lms.dto.*;
 import com.example.lms.dto.error.ErrorDto;
 import com.example.lms.dto.error.ErrorType;
 import com.example.lms.dto.error.Message;
+import com.example.lms.dto.feedback.*;
+import com.example.lms.mapper.AssessmentMapper;
 import com.example.lms.mapper.UserMapper;
-import com.example.lms.repository.UserRepository;
+import com.example.lms.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-
+    private final UserHomeworkRepository userHomeworkRepository;
+    private final AssessmentRepository assessmentRepository;
+    private final UserAssessmentRepository userAssessmentRepository;
+    private final CourseRepository courseRepository;
     private final UserMapper userMapper = Mappers.getMapper(UserMapper.class);
+    private final AssessmentMapper assessmentMapper = Mappers.getMapper(AssessmentMapper.class);
 
     @Override
     public UserRegisterResponseDto register(UserRegisterDto userRegisterDto) {
@@ -89,7 +96,61 @@ public class UserServiceImpl implements UserService {
         }
 
         UserDetailsDto userDetailsDto = userMapper.userToUserDetailsDto(user);
+        List<UserAssessment> userAssessments = user.getUserAssessments();
+        Set<Integer> numbers = userAssessments
+                .stream()
+                .map(u -> u.getAssessment().getNumber())
+                .collect(Collectors.toSet());
+        userDetailsDto.setNumbers(numbers);
         return userDetailsDto;
+    }
+
+    @Override
+    public FeedbackDto getFeedback(FeedbackRequestDto feedbackRequestDto) {
+        User user = userRepository.findUsersByUuid(feedbackRequestDto.getUuid());
+        FeedbackDto feedback = userMapper.userToFeedbackDto(user);
+        Set<CourseDto> courseDtos = new HashSet<>();
+        List<Course> courses = courseRepository.findAllByUuidIn(feedbackRequestDto.getUuids());
+        for (Course c : courses) {
+            CourseDto courseDto = new CourseDto();
+            courseDto.setName(c.getName());
+            List<SessionFeedbackDto> sessionFeedbackDtos = new ArrayList<>();
+            for (Session s : c.getSessions()) {
+                SessionFeedbackDto sessionFeedbackDto = new SessionFeedbackDto();
+                Homework homework = s.getHomework();
+                if (homework != null) {
+                    UserHomework userHomework = userHomeworkRepository.findByHomework_IdAndUser_Id(homework.getId(), user.getId());
+                    sessionSetter(userHomework, s, sessionFeedbackDto);
+                    sessionFeedbackDtos.add(sessionFeedbackDto);
+                }
+            }
+            courseDto.setSessions(sessionFeedbackDtos);
+            courseDtos.add(courseDto);
+        }
+        feedback.setCourses(courseDtos);
+
+        List<Assessment> assessments = assessmentRepository.findAllByNumberIn(feedbackRequestDto.getAssessmentNumbers());
+        List<AssessmentDto> assessmentDtos = new ArrayList<>();
+        for (Assessment a : assessments) {
+            AssessmentDto assessmentDto = new AssessmentDto();
+            assessmentDto.setNumber(a.getNumber());
+            List<UserAssessment> userAssessments = userAssessmentRepository.findAllByAssessment_IdAndUser_Id(a.getId(), user.getId());
+            List<UserAssessmentFeedbackDto> list = userAssessments
+                    .stream()
+                    .map(assessmentMapper::userAssessmentToFeedbackDto)
+                    .toList();
+            assessmentDto.setAssessmentFeedbackDtos(list);
+            assessmentDtos.add(assessmentDto);
+        }
+        feedback.setAssessments(assessmentDtos);
+        return feedback;
+    }
+
+    private void sessionSetter(UserHomework userHomework, Session s, SessionFeedbackDto sessionFeedbackDto) {
+        sessionFeedbackDto.setNumber(s.getNumber());
+        sessionFeedbackDto.setGrade(userHomework.getGrade());
+        sessionFeedbackDto.setPassedStatus(userHomework.getPassedStatus());
+        sessionFeedbackDto.setComment(userHomework.getComment());
     }
 
     private Boolean isBodyValid(UserRegisterDto registerDto) {

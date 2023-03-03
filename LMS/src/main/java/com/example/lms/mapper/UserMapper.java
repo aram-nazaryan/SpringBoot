@@ -1,10 +1,10 @@
 package com.example.lms.mapper;
 
 import com.example.lms.domain.User;
+import com.example.lms.dto.feedback.FeedbackDto;
 import com.example.lms.dto.UserDetailsDto;
 import com.example.lms.dto.UserRegisterDto;
 import com.example.lms.dto.UserRegisterResponseDto;
-import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.stereotype.Component;
@@ -25,4 +25,6 @@ public interface UserMapper {
     UserRegisterResponseDto userToUserResponseDto(User user);
 
     UserDetailsDto userToUserDetailsDto(User user);
+
+    FeedbackDto userToFeedbackDto(User user);
 }

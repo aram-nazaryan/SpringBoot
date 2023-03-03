@@ -2,6 +2,9 @@ package com.example.lms.controller;
 
 import com.example.lms.dto.*;
 import com.example.lms.dto.course.CourseDetailsResponseDto;
+import com.example.lms.dto.course.CourseParticipantsDto;
+import com.example.lms.dto.course.CourseRegisterDto;
+import com.example.lms.dto.course.CourseRegisterResponseDto;
 import com.example.lms.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

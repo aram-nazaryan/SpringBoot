@@ -1,8 +1,8 @@
 package com.example.lms.service;
 
-import com.example.lms.dto.CourseParticipantsDto;
-import com.example.lms.dto.CourseRegisterDto;
-import com.example.lms.dto.CourseRegisterResponseDto;
+import com.example.lms.dto.course.CourseParticipantsDto;
+import com.example.lms.dto.course.CourseRegisterDto;
+import com.example.lms.dto.course.CourseRegisterResponseDto;
 import com.example.lms.dto.UpdateResponseMessageDto;
 import com.example.lms.dto.course.CourseDetailsResponseDto;
 import org.springframework.data.domain.Pageable;

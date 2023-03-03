@@ -6,10 +6,10 @@ import com.example.lms.domain.Homework;
 import com.example.lms.domain.Session;
 import com.example.lms.domain.User;
 import com.example.lms.domain.UserHomework;
-import com.example.lms.dto.CourseRegisterDto;
-import com.example.lms.dto.CourseRegisterResponseDto;
 import com.example.lms.dto.course.AttendanceDto;
 import com.example.lms.dto.course.CourseDetailsResponseDto;
+import com.example.lms.dto.course.CourseRegisterDto;
+import com.example.lms.dto.course.CourseRegisterResponseDto;
 import com.example.lms.dto.course.HomeworkDto;
 import com.example.lms.dto.course.SessionDto;
 import com.example.lms.dto.course.UserHomeworkDto;
@@ -19,7 +19,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-03-03T16:18:52+0400",
+    date = "2023-03-03T22:16:46+0400",
     comments = "version: 1.5.3.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.6.jar, environment: Java 18.0.2-ea (Private Build)"
 )
 public class CourseMapperImpl implements CourseMapper {
@@ -99,6 +99,8 @@ public class CourseMapperImpl implements CourseMapper {
 
         attendanceDto.setUserId( attendanceUserId( attendance ) );
         attendanceDto.setSessionId( attendanceSessionId( attendance ) );
+        attendanceDto.setUserName( attendanceUserFirstName( attendance ) );
+        attendanceDto.setUserSurname( attendanceUserLastName( attendance ) );
         attendanceDto.setAttendedStatus( attendance.getAttendedStatus() );
 
         return attendanceDto;
@@ -129,6 +131,8 @@ public class CourseMapperImpl implements CourseMapper {
 
         userHomeworkDto.setHomeworkId( userHomeworkHomeworkId( userHomework ) );
         userHomeworkDto.setUserId( userHomeworkUserId( userHomework ) );
+        userHomeworkDto.setUserName( userHomeworkUserFirstName( userHomework ) );
+        userHomeworkDto.setUserSurname( userHomeworkUserLastName( userHomework ) );
         userHomeworkDto.setComment( userHomework.getComment() );
         userHomeworkDto.setGrade( userHomework.getGrade() );
         userHomeworkDto.setPassedStatus( userHomework.getPassedStatus() );
@@ -207,6 +211,36 @@ public class CourseMapperImpl implements CourseMapper {
         return id;
     }
 
+    private String attendanceUserFirstName(Attendance attendance) {
+        if ( attendance == null ) {
+            return null;
+        }
+        User user = attendance.getUser();
+        if ( user == null ) {
+            return null;
+        }
+        String firstName = user.getFirstName();
+        if ( firstName == null ) {
+            return null;
+        }
+        return firstName;
+    }
+
+    private String attendanceUserLastName(Attendance attendance) {
+        if ( attendance == null ) {
+            return null;
+        }
+        User user = attendance.getUser();
+        if ( user == null ) {
+            return null;
+        }
+        String lastName = user.getLastName();
+        if ( lastName == null ) {
+            return null;
+        }
+        return lastName;
+    }
+
     private Long homeworkSessionId(Homework homework) {
         if ( homework == null ) {
             return null;
@@ -263,5 +297,35 @@ public class CourseMapperImpl implements CourseMapper {
             return null;
         }
         return id;
+    }
+
+    private String userHomeworkUserFirstName(UserHomework userHomework) {
+        if ( userHomework == null ) {
+            return null;
+        }
+        User user = userHomework.getUser();
+        if ( user == null ) {
+            return null;
+        }
+        String firstName = user.getFirstName();
+        if ( firstName == null ) {
+            return null;
+        }
+        return firstName;
+    }
+
+    private String userHomeworkUserLastName(UserHomework userHomework) {
+        if ( userHomework == null ) {
+            return null;
+        }
+        User user = userHomework.getUser();
+        if ( user == null ) {
+            return null;
+        }
+        String lastName = user.getLastName();
+        if ( lastName == null ) {
+            return null;
+        }
+        return lastName;
     }
 }

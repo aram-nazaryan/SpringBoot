@@ -6,5 +6,7 @@ import lombok.Data;
 public class AttendanceDto {
     private Long sessionId;
     private Long userId;
+    private String userName;
+    private String userSurname;
     private Boolean attendedStatus;
 }
