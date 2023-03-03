@@ -6,7 +6,7 @@ import lombok.Data;
 public class AssessmentUpdateRequestDto {
     private Long userId;
     private Long courseId;
-    private Integer number;
+    private Long assessmentId;
     private String comment;
     private Double grade;
     private Boolean passedStatus;

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.192s</div>
+<div class="counter">0.580s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">0.192s</td>
+<td class="success">0.580s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,14 +87,14 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>18:35:00.060 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [LmsApplicationTests]: using SpringBootContextLoader
-18:35:00.066 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.lms.LmsApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
-18:35:00.068 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.lms.LmsApplicationTests]: LmsApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-18:35:00.099 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [LmsApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
-18:35:00.186 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/home/aram/Desktop/SpringBoot/LMS/build/classes/java/main/com/example/lms/LmsApplication.class]
-18:35:00.187 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.lms.LmsApplication for test class com.example.lms.LmsApplicationTests
-18:35:00.291 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [LmsApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-18:35:00.292 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [LmsApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+<pre>16:18:56.474 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [LmsApplicationTests]: using SpringBootContextLoader
+16:18:56.483 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.lms.LmsApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+16:18:56.487 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.lms.LmsApplicationTests]: LmsApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:18:56.557 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [LmsApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+16:18:56.657 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/home/aram/Desktop/SpringBoot/LMS/build/classes/java/main/com/example/lms/LmsApplication.class]
+16:18:56.658 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.lms.LmsApplication for test class com.example.lms.LmsApplicationTests
+16:18:56.822 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [LmsApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+16:18:56.824 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [LmsApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -104,21 +104,21 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.1)
 
-2023-03-01T18:35:00.643+04:00  INFO 160236 --- [    Test worker] com.example.lms.LmsApplicationTests      : Starting LmsApplicationTests using Java 18.0.2-ea with PID 160236 (started by aram in /home/aram/Desktop/SpringBoot/LMS)
-2023-03-01T18:35:00.645+04:00  INFO 160236 --- [    Test worker] com.example.lms.LmsApplicationTests      : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2023-03-01T18:35:01.483+04:00  INFO 160236 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-03-01T18:35:01.622+04:00  INFO 160236 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 127 ms. Found 7 JPA repository interfaces.
-2023-03-01T18:35:02.233+04:00  INFO 160236 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-03-01T18:35:02.282+04:00  INFO 160236 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
-2023-03-01T18:35:02.458+04:00  WARN 160236 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-2023-03-01T18:35:02.588+04:00  INFO 160236 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-03-01T18:35:02.852+04:00  INFO 160236 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@48ccbb32
-2023-03-01T18:35:02.855+04:00  INFO 160236 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-03-01T18:35:02.900+04:00  INFO 160236 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-03-01T18:35:04.235+04:00  INFO 160236 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-03-01T18:35:04.245+04:00  INFO 160236 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-03-01T18:35:04.997+04:00  WARN 160236 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-03-01T18:35:05.371+04:00  INFO 160236 --- [    Test worker] com.example.lms.LmsApplicationTests      : Started LmsApplicationTests in 5.03 seconds (process running for 6.351)
+2023-03-03T16:18:57.284+04:00  INFO 202547 --- [    Test worker] com.example.lms.LmsApplicationTests      : Starting LmsApplicationTests using Java 18.0.2-ea with PID 202547 (started by aram in /home/aram/Desktop/SpringBoot/LMS)
+2023-03-03T16:18:57.288+04:00  INFO 202547 --- [    Test worker] com.example.lms.LmsApplicationTests      : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-03-03T16:18:58.227+04:00  INFO 202547 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-03T16:18:58.375+04:00  INFO 202547 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 130 ms. Found 8 JPA repository interfaces.
+2023-03-03T16:18:59.021+04:00  INFO 202547 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-03T16:18:59.110+04:00  INFO 202547 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-03-03T16:18:59.408+04:00  WARN 202547 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-03-03T16:19:00.172+04:00  INFO 202547 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-03T16:19:03.265+04:00  INFO 202547 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5d66ae3a
+2023-03-03T16:19:03.346+04:00  INFO 202547 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-03T16:19:07.160+04:00  INFO 202547 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-03-03T16:19:12.940+04:00  INFO 202547 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-03T16:19:12.956+04:00  INFO 202547 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-03T16:19:14.570+04:00  WARN 202547 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-03T16:19:15.502+04:00  INFO 202547 --- [    Test worker] com.example.lms.LmsApplicationTests      : Started LmsApplicationTests in 18.616 seconds (process running for 20.44)
 </pre>
 </span>
 </div>
@@ -130,7 +130,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6</a> at 1 Mar 2023, 18:35:05</p>
+<a href="http://www.gradle.org">Gradle 7.6</a> at 3 Mar 2023, 16:19:16</p>
 </div>
 </div>
 </body>

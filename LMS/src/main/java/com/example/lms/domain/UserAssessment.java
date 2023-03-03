@@ -9,7 +9,7 @@ import lombok.Setter;
 @Entity
 @Table(
         uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"number", "course_id", "user_id"})
+                @UniqueConstraint(columnNames = {"assessment_id", "course_id", "user_id"})
         }
 )
 public class UserAssessment {
@@ -17,7 +17,8 @@ public class UserAssessment {
     @GeneratedValue
     private Long id;
 
-    private Integer number;
+    @ManyToOne
+    private Assessment assessment;
 
     @ManyToOne
     private User user;

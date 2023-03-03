@@ -19,7 +19,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-03-01T18:34:57+0400",
+    date = "2023-03-03T16:18:52+0400",
     comments = "version: 1.5.3.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.6.jar, environment: Java 18.0.2-ea (Private Build)"
 )
 public class CourseMapperImpl implements CourseMapper {
