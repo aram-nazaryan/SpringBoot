@@ -8,7 +8,9 @@ public enum Message {
     DELETE("Course deleted"),
     DELETE_USER("User deleted"),
     ATTENDANCE_UPDATED("Attendance updated"),
-    HOMEWORK_UPDATED("Homework updated");
+    HOMEWORK_UPDATED("Homework updated"),
+    ASSESSMENT_CREATED("Assessment created"),
+    ASSESSMENT_UPDATED("Assessment updated");
 
     private final String message;
 

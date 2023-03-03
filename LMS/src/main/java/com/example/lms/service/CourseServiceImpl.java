@@ -4,6 +4,7 @@ import com.example.lms.domain.Attendance;
 import com.example.lms.domain.Course;
 import com.example.lms.domain.Session;
 import com.example.lms.domain.User;
+import com.example.lms.domain.enums.Role;
 import com.example.lms.dto.CourseParticipantsDto;
 import com.example.lms.dto.CourseRegisterDto;
 import com.example.lms.dto.CourseRegisterResponseDto;
@@ -87,6 +88,8 @@ public class CourseServiceImpl implements CourseService {
 
         List<Session> sessions = sessionRepository.getSessionsByCourse_Uuid(participantsDto.getUuid());
         for (User u : users) {
+            if (u.getRole().equals(Role.ROLE_TRAINER))
+                continue;
             if (!enrolledUsers.contains(u)) {
                 for (Session s : sessions) {
                     Attendance attendance = new Attendance();

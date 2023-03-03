@@ -1,6 +1,7 @@
 package com.example.lms.service;
 
 import com.example.lms.domain.*;
+import com.example.lms.domain.enums.Role;
 import com.example.lms.dto.HomeworkCreationDto;
 import com.example.lms.dto.HomeworkResponseDto;
 import com.example.lms.dto.UpdateResponseMessageDto;
@@ -46,6 +47,8 @@ public class HomeworkServiceImpl implements HomeworkService {
         Set<User> users = course.getUsers();
 
         for (User u : users) {
+            if (u.getRole().equals(Role.ROLE_TRAINER))
+                continue;
             UserHomework userHomework = new UserHomework();
             userHomework.setHomework(homework);
             userHomework.setUser(u);
